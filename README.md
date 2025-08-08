@@ -29,7 +29,7 @@ The project includes:
 * **Shard1** and **Shard2**: Independent PostgreSQL containers each with own database.
 * **Spring Boot app**: Configured with two datasources, entity managers, and transaction managers.
 * **ShardResolver**: Routes the data to the correct shard based on the username.
-* **UserShardingService**: Saves user data to the proper shard repository.
+* **UserShardingService**: Saves and fetches user data to the proper shard repository.
 
 ---
 
