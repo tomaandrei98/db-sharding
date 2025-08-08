@@ -1,7 +1,6 @@
 package com.example.sharding.repository.shard2;
 
-import com.example.sharding.entity.UserEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.sharding.repository.UserRepository;
 
-public interface UserShard2Repository extends JpaRepository<UserEntity, Long> {
+public interface UserShard2Repository extends UserRepository {
 }
