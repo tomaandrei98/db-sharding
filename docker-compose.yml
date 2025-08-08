@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  shard1:
+    image: postgres:16
+    container_name: shard1
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: shard1db
+    ports:
+      - "5433:5432"
+    networks:
+      - shardnet
+
+  shard2:
+    image: postgres:16
+    container_name: shard2
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: shard2db
+    ports:
+      - "5434:5432"
+    networks:
+      - shardnet
+
+  pgadmin_shards:
+    image: dpage/pgadmin4
+    container_name: pgadmin_shards
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    networks:
+      - shardnet
+
+networks:
+  shardnet:
+    driver: bridge
